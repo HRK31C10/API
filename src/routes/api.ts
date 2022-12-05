@@ -15,4 +15,8 @@ router.get('/frases',apiController.listFrases)
 
 router.get('/frase/:id',apiController.getFrase)
 
+router.put('/frase/:id', apiController.updateFrase)
+
+router.delete('/frase/:id',apiController.deleteFrase)
+
 export default router

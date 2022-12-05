@@ -43,3 +43,33 @@ export const getFrase =async (req:Request, res:Response) => {
         res.json({error:'Frase Não existe!'})
     }
 }
+
+export const updateFrase = async(req:Request, res:Response) =>{
+    let{id} = req.params
+    let{autor, txt} = req.body
+
+    let frase = await Frase.findByPk(id)
+
+    if(frase) {
+        frase.autor = autor
+        frase.txt = txt
+
+        await frase.save()
+        res.json({frase})
+    }else{
+        res.json({error:'Frase não encontrada'})
+    }
+}
+
+export const deleteFrase = async(req:Request, res:Response) =>{
+
+    let{id} = req.params
+ 
+    let frase = await Frase.destroy({
+        where: {id}
+    })
+
+    res.json({})
+
+    
+}

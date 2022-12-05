@@ -4,7 +4,7 @@ import { sequelize } from '../instances/mysql'
 
 export interface FraseInstance extends Model{
     id: number,
-    author: string,
+    autor: string,
     txt: string
 }
 
